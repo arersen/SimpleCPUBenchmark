@@ -16,4 +16,3 @@ A lightweight, cross-platform CPU benchmark written in C designed to test the **
 - **Real-world stress testing**: Simulates a mixture of workloads that resemble heavy tasks like scientific computing, cryptography, and data processing.
 - **Easy to run**: Just compile and run to get results quickly.
 
-##  Getting Started
