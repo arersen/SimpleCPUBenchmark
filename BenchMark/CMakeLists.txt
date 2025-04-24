@@ -6,3 +6,6 @@ project(CPU_Benchmark)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(cpu_benchmark main.c)
+target_link_libraries(cpu_benchmark m)
+
+
