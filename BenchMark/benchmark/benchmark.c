@@ -77,6 +77,7 @@ void* worker(void* arg) {
 
 
 void benchmark(int seconds) {
+    running = 1;
     int num_threads = get_cpu_threads();
     print_cpu_info();
     printf("Benchmark: running %d threads for %d seconds...\n", num_threads, seconds);

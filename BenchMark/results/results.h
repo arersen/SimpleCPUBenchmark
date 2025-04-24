@@ -10,5 +10,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include <dirent.h>
 void save_result(unsigned long long total, int seconds);
+void print_avg_iterations(int seconds);
 #endif //RESULTS_H
