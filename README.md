@@ -16,3 +16,14 @@ A lightweight, cross-platform CPU benchmark written in C designed to test the **
 - **Real-world stress testing**: Simulates a mixture of workloads that resemble heavy tasks like scientific computing, cryptography, and data processing.
 - **Easy to run**: Just compile and run to get results quickly.
 
+## Usage
+
+```
+[awlik@archlinux cmake-build-debug]$ ./cpu_benchmark 
+CPU: 11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz
+Benchmark: running 16 threads for 15 seconds...
+Total iterations in 15 seconds: 4477947
+Saving results to: results/1745521041.result
+[awlik@archlinux cmake-build-debug]$
+```
+
