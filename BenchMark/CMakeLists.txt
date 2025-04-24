@@ -9,7 +9,9 @@ add_executable(cpu_benchmark main.c
         cpu_info/cpu_info.h
         cpu_info/cpu_info.c
         benchmark/benchmark.c
-        benchmark/benchmark.h)
+        benchmark/benchmark.h
+        results/results.c
+        results/results.h)
 target_link_libraries(cpu_benchmark m)
 
 

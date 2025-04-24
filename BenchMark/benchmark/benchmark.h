@@ -21,7 +21,8 @@ DWORD WINAPI worker(LPVOID arg);
 void* worker(void* arg);
 #endif
 
-void benchmark();
+void benchmark(int seconds);
 #include <malloc.h>
+#include "../results/results.h"
 #include "../cpu_info/cpu_info.h"
 #endif //BENCHMARK_H

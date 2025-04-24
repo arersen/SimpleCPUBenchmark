@@ -7,10 +7,11 @@
 #include <sys/types.h>
 #include <errno.h>
 
+
 #include "benchmark/benchmark.h"
 
 
 int main() {
-    benchmark(10);
+    benchmark(15);
     return 0;
 }

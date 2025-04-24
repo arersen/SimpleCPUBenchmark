@@ -79,7 +79,7 @@ void* worker(void* arg) {
 void benchmark(int seconds) {
     int num_threads = get_cpu_threads();
     print_cpu_info();
-    printf("Benchmark: running %d threads for 10 seconds...\n", num_threads);
+    printf("Benchmark: running %d threads for %d seconds...\n", num_threads, seconds);
 
     ThreadData* data = (ThreadData*)malloc(sizeof(ThreadData) * num_threads);
 
@@ -115,8 +115,8 @@ void benchmark(int seconds) {
     }
     const char *results_directory_name = "results";
 
-    printf("Total iterations in 10 seconds: %llu\n", total);
-
+    printf("Total iterations in %d seconds: %llu\n", seconds, total);
+    save_result(total, seconds);
     free(data);
     free(threads);
 }
