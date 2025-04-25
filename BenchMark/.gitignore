@@ -4,3 +4,5 @@ CMakeFiles/
 cmake-build-debug/
 Makefile
 cpu_benchmark
+client
+server

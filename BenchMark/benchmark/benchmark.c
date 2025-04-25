@@ -5,6 +5,7 @@
 #include "benchmark.h"
 
 volatile int running = 1;
+unsigned long long total = 0;
 
 static void sleep_exact_seconds(int sec) {
 #ifdef _WIN32
@@ -110,7 +111,7 @@ void benchmark(int seconds) {
 #endif
     }
 
-    unsigned long long total = 0;
+
     for (int i = 0; i < num_threads; ++i) {
         total += data[i].counter;
     }

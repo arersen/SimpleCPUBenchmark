@@ -21,9 +21,13 @@ add_executable(cpu_benchmark main.c
         results/results.c
         results/results.h
 )
-
-add_executable(server)
-add_executable(client)
 target_link_libraries(cpu_benchmark m network_lib)
+
+add_executable(server server.c)
+target_link_libraries(server m network_lib)
+
+add_executable(client client.c)
+target_link_libraries(client m network_lib)
+
 
 

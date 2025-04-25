@@ -13,8 +13,8 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 typedef struct {
-    unsigned long long total;
-    int running;
+    unsigned long long *total;
+    volatile int *running;
 } Data;
 
 #include "client.h"

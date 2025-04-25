@@ -6,11 +6,16 @@
 
 #include "server.h"
 
+Data client2_data;
+
+int server;
+Data* extern_client_data_ptr;
+
 void connect_client_to_dedicated_server(const char* ip_address, int port, Data* client_data_ptr) {
     struct sockaddr_in serv_addr;
     int ready = 0;
 
-    int server = socket(AF_INET, SOCK_STREAM, 0);
+    server = socket(AF_INET, SOCK_STREAM, 0);
     if (server < 0) {
         perror("Socket creation error");
         exit(EXIT_FAILURE);
@@ -28,17 +33,21 @@ void connect_client_to_dedicated_server(const char* ip_address, int port, Data* 
         scanf("%d", &ready);
         send(server, &ready, sizeof(ready), 0);
     }
+    extern_client_data_ptr = client_data_ptr;
 
-    Data client2_data;
+
+
+
+}
+
+void client_poll() {
     clock_t counter = clock();
-
     while (1) {
         if (clock() > counter + SAMPLING_PERIOD) {
-            send(server, client_data_ptr, sizeof(Data), 0);
+            send(server, extern_client_data_ptr, sizeof(Data), 0);
             read(server, &client2_data, sizeof(Data));
-            if (!client_data_ptr->running) break;
+            if (!extern_client_data_ptr->running) break;
             counter = clock();
         }
     }
-
 }
