@@ -44,7 +44,7 @@ int main() {
                 pthread_t thread;
                 pthread_create(&thread, NULL, client_thread, NULL);
 
-
+                benchmark(10);
 
                 pthread_join(thread, NULL);
                 break;

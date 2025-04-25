@@ -47,6 +47,8 @@ void client_poll() {
             send(server, extern_client_data_ptr, sizeof(Data), 0);
             read(server, &client2_data, sizeof(Data));
             if (!extern_client_data_ptr->running) break;
+            printf("Total client2: %llu\n", *client2_data.total);
+
             counter = clock();
         }
     }
