@@ -35,9 +35,6 @@ void connect_client_to_dedicated_server(const char* ip_address, int port, Data* 
     }
     extern_client_data_ptr = client_data_ptr;
 
-
-
-
 }
 
 void client_poll() {

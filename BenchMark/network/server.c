@@ -49,11 +49,11 @@ void start_dedicated_server(int port) {
     while (1) {
         read(client1, &client1_data, sizeof(client1_data));
         send(client2, &client1_data, sizeof(client1_data), 0);
-        if (!client1_data.running) break;
+        if (!*client1_data.running) break;
 
         read(client2, &client2_data, sizeof(client2_data));
         send(client1, &client2_data, sizeof(client2_data), 0);
-        if (!client2_data.running) break;
+        if (!*client2_data.running) break;
     }
-    printf("Benchmark end:\n\tclient1_total: %llu\n\tclient2_total: %llu\n", client1_data.total, client2_data.total);
+    printf("Benchmark end:\n\tclient1_total: %llu\n\tclient2_total: %llu\n", *client1_data.total, *client2_data.total);
 }
