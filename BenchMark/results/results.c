@@ -10,12 +10,20 @@ void save_result(unsigned long long file_total, int seconds) {
     const char *result_directory_name = "results";
     struct stat st;
     if (stat(result_directory_name, &st) != 0 || !S_ISDIR(st.st_mode)) {
+#ifdef WIN32
+        if (mkdir(result_directory_name) == 0) {
+            printf("Created directory results/");
+        }
+#else
         if (mkdir(result_directory_name, 0755) == 0) {
             printf("Created directory results/");
-        } else {
+        }
+#endif
+        else {
             printf("%s %d Failed to create directory.\n", __func__, __LINE__);
             exit(1);
         }
+
     }
 
     char file_name[1024];
