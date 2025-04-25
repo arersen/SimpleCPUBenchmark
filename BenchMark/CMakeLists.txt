@@ -4,6 +4,14 @@ project(CPU_Benchmark)
 
 
 set(CMAKE_C_STANDARD 99)
+add_library(network_lib SHARED
+        network/network.c
+        network/network.h
+        network/server.c
+        network/server.h
+        network/client.c
+        network/client.h
+)
 
 add_executable(cpu_benchmark main.c
         cpu_info/cpu_info.h
@@ -11,7 +19,11 @@ add_executable(cpu_benchmark main.c
         benchmark/benchmark.c
         benchmark/benchmark.h
         results/results.c
-        results/results.h)
-target_link_libraries(cpu_benchmark m)
+        results/results.h
+)
+
+add_executable(server)
+add_executable(client)
+target_link_libraries(cpu_benchmark m network_lib)
 
 
